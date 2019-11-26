@@ -3,5 +3,6 @@ Hydra.get("ping", function(request) {
 })
 
 Hydra.get("account", async function(request) {
-  return Hydra.Client.get("/accounts/me")
+  const response = await Hydra.Client.get("/accounts/me")
+  return response.body
 })
