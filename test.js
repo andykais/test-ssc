@@ -2,13 +2,13 @@ Hydra.onLoad(async function(response) {
   Logger.error('Hydra.onLoad start');
   const serverAuth = Hydra.Client.authServer();
 
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
-  await Hydra.Client.get('/health/check', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
+  await Hydra.Client.get('/health/time', { auth: serverAuth })
 
   Logger.error('Hydra.onLoad complete');
 });
