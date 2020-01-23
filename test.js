@@ -1,7 +1,15 @@
+function sleep(seconds) {
+  const later = new Date()
+  later.setSeconds(later.getSeconds() + seconds)
+  while (new Date() < later) {}
+}
+
 Hydra.onLoad(async function(response) {
   Logger.error(`Hydra.onLoad start ${new Date()}`);
   const serverAuth = Hydra.Client.authServer();
-
+  
+  sleep(5)
+  
   await Hydra.Client.get('/health/time', { auth: serverAuth })
   await Hydra.Client.get('/health/time', { auth: serverAuth })
   await Hydra.Client.get('/health/time', { auth: serverAuth })
@@ -19,8 +27,11 @@ Hydra.get('synchronous', function(request) {
   return { synchonous: true };
 });
 
-Hydra.get('d_resolved', function(request) {
+Hydra.get('d_resolved', function(request) {  
   Logger.error(`d_resolved endpoint start ${new Date()}`);
+
+  sleep(5)
+
   var speedy_return_value = request.userRequest.queryparams.TestInput;
   Logger.error(`d_resolved endpoint end ${new Date()}`);
   return D.resolved(speedy_return_value);
