@@ -34,7 +34,7 @@ Hydra.get('d_resolved', function(request) {
 
   var speedy_return_value = request.userRequest.queryparams.TestInput;
   Logger.error(`d_resolved endpoint end ${new Date()}`);
-  return D.resolved(speedy_return_value);
+  return D.resolved({ d_resolved: 'complete' });
 });
 
 Hydra.get('promise', function(request) {
