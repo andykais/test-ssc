@@ -63,5 +63,6 @@ Hydra.get("get_account", async function(request) {
 
 
 Hydra.get("how_do_i_return_errors", function(request) {
-  return D.rejected(new Error("oi Im an error"))
+//   return D.rejected(new Error("oi Im an error"))
+  return D.rejected({ msg: "oi Im an error" })
 })
