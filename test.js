@@ -73,6 +73,6 @@ Hydra.get("get_nonexistent_account", async function (request) {
 Hydra.get("how_do_i_return_errors", function(request) {
 //   return D.rejected(new Error("D.rejected(new Error(...))"))
 //   return D.rejected({ msg: "D.rejected({...})" })
-
-  return D.rejected(new SSCError(-2, { ret: 'D.rejected(new SSCError({...}))' }))  // works fine with ServerSideCodeErrorResponse
+  return new SSCError(-2, { ret: 'return new SSCError(...' })
+//   return D.rejected(new SSCError(-1, { ret: 'return D.rejected(new SSCError(...' })
 })
