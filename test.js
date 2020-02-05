@@ -4,7 +4,7 @@ function sleep(seconds) {
   while (new Date() < later) {}
 }
 
-Hydra.onLoad(async function(response) {
+async function onLoadFn(response) {
   Logger.error(`Hydra.onLoad start ${new Date()}`);
   const serverAuth = Hydra.Client.authServer();
   
@@ -19,7 +19,9 @@ Hydra.onLoad(async function(response) {
   await Hydra.Client.get('/health/time', { auth: serverAuth })
 
   Logger.error(`Hydra.onLoad complete ${new Date()}`);
-});
+
+}
+// Hydra.onLoad(onLoadFn);
 
 Hydra.get('synchronous', function(request) {
   Logger.error('synchronous endpoint start');
@@ -64,5 +66,6 @@ Hydra.get("get_account", async function(request) {
 
 Hydra.get("how_do_i_return_errors", function(request) {
 //   return D.rejected(new Error("oi Im an error"))
-  return D.rejected({ msg: "oi Im an error" })
+//   return D.rejected({ msg: "oi Im an error" })
+  return D.rejected(new SSCError(-1, { ret: 'frick' }))
 })
