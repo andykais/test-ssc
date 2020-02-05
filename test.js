@@ -76,5 +76,5 @@ Hydra.get("how_do_i_return_errors", function(request) {
 //   return new SSCError(-2, { ret: 'return new SSCError(...' }) // works with ServerSideCodeErrorResponse
 //   return D.rejected(new SSCError(-1, { ret: 'return D.rejected(new SSCError(...' })) // works with ServerSideCodeErrorResponse
 //   throw new SSCError(-3, { ret: 'throw new SSCError(...' }) // works in an async block, not synchronously
-  return new HydraError('its cool, its just me andrew testing things', { bod: 'data' })
+  return new HydraError({ pay: 'its cool, its just me andrew testing things'}, { bod: 'data' })
 })
