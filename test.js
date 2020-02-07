@@ -81,10 +81,10 @@ Hydra.get("how_do_i_return_errors", function(request) {
   return new SSCSuccess(0, {"ret": "some body"})
 })
 
-Hydra.get("get_bodies", async function(request) {
-  const requestBody = request.body
+Hydra.get("get_bodies_on_inventory", async function(request) {
+  const inventoryBody = request.body
 //   const accountId = request.headers.access.accountId;
   const accountId = request.headers.access.data.account_id;
-  const response = await Hydra.Client.get(`/profiles/${accountId}/inventory`, { body: { tags: ['tag-1'] } })
-  return new SSCSuccess(requestBody)
+  const response = await Hydra.Client.get(`/profiles/${accountId}/inventory`, { body: inventoryBody })
+  return new SSCSuccess(0, response.body)
 })
