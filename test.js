@@ -80,3 +80,11 @@ Hydra.get("how_do_i_return_errors", function(request) {
 //   return new HydraError({ pay: 'its cool, its just me andrew testing things'}, { bod: 'data' })
   return new SSCSuccess(0, {"ret": "some body"})
 })
+
+Hydra.get("get_bodies", function(request) {
+  const requestBody = request.body
+//   const accountId = request.headers.access.accountId;
+  const accountId = request.headers.access.data.account_id;
+  const response = Hydra.Client.get(`/profiles/${accountId}/inventory`, { body: { tags: ['nothin'] } })
+  return new SSCSuccess(requestBody)
+})
